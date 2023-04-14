@@ -16,7 +16,7 @@ def home():
 def review():
 
     # extract the customer_review by writing the appropriate 'key' from the JSON data
-    review = request.json.get('')
+    review = request.json.get('text')
 
     # check if the customer_review is empty, return error
     if not review:
@@ -30,9 +30,9 @@ def review():
 
     else:
 
-        _ , _ = sa.predict(review)
+        predicted_emotion , predicted_emotion_img_url = sa.predict(review)
 
-        return jsonify({'':'' , '':''})
+        return jsonify({'predicted_emotion':predicted_emotion , 'predicted_emotion_img_url':predicted_emotion_img_url})
 
 
 if __name__  ==  "__main__":
