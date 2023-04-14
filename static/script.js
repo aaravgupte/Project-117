@@ -11,14 +11,14 @@ $(document).ready(function(){
 
 
     //  write an event, when Submit button is clicked
-    $('').click(function(){
+    $('#button').click(function(){
 
         //  get the text value from the textarea using the 'val()' method
-        let text_value = $('').val()
+        let text_value = $('#text').val()
 
         //  Convert it to JS object.
         //  Provide a 'key' here and in write the same in app.py file as well to extract data
-        let input_text = {'' : text_value}
+        let input_text = {'text' : text_value}
         console.log(input_text)
 
         //  ajax request
@@ -46,16 +46,18 @@ $(document).ready(function(){
                 $("#emo_img_url").css("display","block")
             }  ,
 
-            },
+            
 
             //  if any error, run this function
             error : function(result){
                 alert(result.responseJSON.message)
                 console.log(result)
             }
+        })
         
 
 
         //  clearing the textbox after every button push
         $('#text').val("")
     })
+})
